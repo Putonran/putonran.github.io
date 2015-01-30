@@ -1,0 +1,97 @@
+﻿
+<html>
+<head>
+    <title>ROC_ID</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="ROC_ID_jQuery.js"></script>
+    <script>
+        $(function () {
+            $('#gen_id1').click(function () {
+                make_id1();
+            });
+        });
+
+        function make_id1() {
+            var ROC_ID = $('select[name="city"]').val() + $('input:radio:checked[name="sex"]').val();
+            var result = ROC_ID_Generator(ROC_ID);
+
+            $('#check_result1').html(result);
+
+        }
+
+        $(function () {
+            $('#gen_id2').click(function () {
+                make_id2();
+            });
+        });
+
+        function make_id2() {
+            var ROC_ID = $('#roc_id').val();
+            var result = ROC_ID_Generator(ROC_ID);
+
+            $('#check_result1').html(result);
+
+        }
+    </script>
+</head>
+<body>
+    <h2>產生檢驗身分證號</h2>
+    <table>
+        <tr>
+            <th align="left">縣/市</th>
+            <td>
+                <select name="city">
+                    <option value="A">臺北市(A)</option>
+                    <option value="B">臺中市(B)</option>
+                    <option value="C">基隆市(C)</option>
+                    <option value="D">臺南市(D)</option>
+                    <option value="E">高雄市(E)</option>
+                    <option value="F">臺北縣(F)</option>
+                    <option value="G">宜蘭縣(G)</option>
+                    <option value="H">桃園縣(H)</option>
+                    <option value="I">嘉義市(I)</option>
+                    <option value="J">新竹縣(J)</option>
+                    <option value="K">苗栗縣(K)</option>
+                    <option value="L">臺中縣(L)(停發)</option>
+                    <option value="M">南投縣(M)</option>
+                    <option value="N">彰化縣(N)</option>
+                    <option value="O">新竹市(O)</option>
+                    <option value="P">雲林縣(P)</option>
+                    <option value="Q">嘉義縣(Q)</option>
+                    <option value="R">臺南縣(R)(停發)</option>
+                    <option value="S">高雄縣(S)(停發)</option>
+                    <option value="T">屏東縣(T)</option>
+                    <option value="U">花蓮縣(U)</option>
+                    <option value="V">臺東縣(V)</option>
+                    <option value="X">澎湖縣(X)</option>
+                    <option value="Y">陽明山(Y)(停發)</option>
+                    <option value="W">金門縣(W)</option>
+                    <option value="Z">連江縣(Z)</option>
+                </select>
+            </td>
+            <th align="left">性別</th>
+            <td>
+                <input type="radio" name="sex" value="1" checked>男 (1)
+                <input type="radio" name="sex" value="2">女 (2)
+            </td>
+            <td>
+                <input type="button" id="gen_id1" value="產生" />
+            </td>
+        <tr>
+            <th align="left">身份證號碼</th>
+            <td colspan="4">
+                <input type="text" id="roc_id" maxlength="10" />
+                <input type="button" id="gen_id2" value="產生/補完/檢查" />
+            </td>
+            <td style="color:tomato;">
+                隨機產生不包含已停發
+            </td>
+        </tr>
+        <th align="left">結果</th>
+        <td colspan="5">
+            <div id="check_result1">請點擊按鈕</div>
+        </td></tr>
+    </table>
+</body>
+</html>
