@@ -17,6 +17,10 @@ function ROC_ID_Generator(ROC_ID) {
             alert('第二個字需為1或2!');
             exit();
         }
+        if (/^[0-9]$/.test(ROC_ID.substr(2)) == false && ROC_ID_len > 2) {
+            alert('除第一個字外其餘需為數字!');
+            exit();
+        }
         //產生縣市代碼對應數字
         var City_Code = ROC_ID.substr(0, 1); 
         var City_Code_Num = City_Code_to_Num(City_Code);
